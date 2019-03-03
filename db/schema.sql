@@ -1,12 +1,11 @@
--- 3. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
+CREATE DATABASE burger_db;
+USE burger_db;
 
-DROP DATABASE IF EXISTS burgers_db;
-CREATE DATABASE burgers_db;
-USE burgers_db;
-
-CREATE TABLE burgers(
-  id INT NOT NULL AUTO_INCREMENT,
-  burger_name VARCHAR(100) NOT NULL,
-  devoured BOOLEAN DEFAULT false,
-  PRIMARY KEY (id)
+CREATE TABLE burgers
+(
+	id int NOT NULL AUTO_INCREMENT,
+	burgerName varchar(255) NOT NULL,
+	isEaten BOOLEAN NOT NULL DEFAULT 0,
+	ts TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (id)
 );

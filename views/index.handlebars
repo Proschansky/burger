@@ -1,29 +1,67 @@
-<h1>Burgers</h1>
+<div class="row">
+    <div class="col s6">
+      <div class="card">
+        <div class="card-image">
+          <img src="assets/images/menu.png">
+        </div>
+        <div class="card-content">
+          <h6>Some burgerst to choose:</h6>
+          <hr>
+          <ul>
+            {{#each burgers}}
+              {{#unless this.isEaten}}
+                <li> 
+                  <span>
+                    {{this.burgerName}}
+                      <div>
+                        {{> burgers/menuBurgers}}
+                      </div>
+                  </span> 
+                </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-    <h1>{{this.burger_name}}<button class= "devour" data-burger={{this.id}}>DEVOUR!</button></h1>
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Burgers I have devoured</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-    <h1>{{this.burger_name}}<button class= "" data-burger={{this.id}}>COOK AGAIN!</button></h1>
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>New Recipe!</h2>
-<form class="create-form">
-  <div class="form-group">
-    <label for="burger_input">Burger Name:</label>
-    <input type="text" id= "burger_name">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-image">
+        <img src="assets/images/eaten.png">
+      </div>
+      <div class="card-content">
+        <h6>Some burgerst you've eaten:</h6>
+        <hr>
+        <ul>
+          {{#each burgers}}
+            {{#if this.isEaten}}
+              <li> 
+                <span>
+                  {{this.burgerName}}
+                    <div>
+                      {{> burgers/deleteBurger}}
+                    </div>
+                </span> 
+              </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
   </div>
+</div>
 
-  <button type="submit">Add Burger</button>
-</form>
+
+<div class="row">
+    <div class="col s6 offset-s3">
+      <h6>Add your favorites to the menu!</h6>
+      <form class="create-update-form" action="/" method="POST">
+        <div class="form-group">
+          <label for="burger">Burger description:</label>
+          <input type="text" id="burger" name="burgerName" class="validate" >
+          <button type="submit" class="waves-effect waves-light btn btn-small black right"><i class="material-icons prefix">create</i>Add Burger</button>
+        </div>
+      </form>
+</div>
+</div>
