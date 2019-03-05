@@ -12,7 +12,7 @@
               {{#unless this.devoured}}
                 <li> 
                   <span>
-                    {{this.burger_name}}
+                    <span id = "burger_name">{{this.burger_name}}</span>
                       <div>
                         {{> burgers/menuBurgers}}
                         {{> burgers/deleteBurger}}
@@ -55,7 +55,7 @@
 
 
 <div class="row">
-    <div class="col-m-6 bg-secondary text-center">
+    <div class="col align-self-center bg-secondary text-center">
       <h6><span class="align-middle text-light">Add a Burger</span></h6>
       <form class="create-update-form" action="/" method="POST">
         <div class="form-group">
