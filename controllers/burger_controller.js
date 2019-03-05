@@ -6,19 +6,19 @@ var burgers = require("../models/burgers.js");
 
 router.get("/", function(req, res) {
   burgers.all(function(data) {
-    var burgersObject = {
+    var burgerInfo = {
       burgers: data
     };
-    console.log(burgersObject);
-    res.render("index", burgersObject);
+    console.log(burgerInfo);
+    res.render("index", burgerInfo);
   });
 });
 
 router.post("/", function(req, res) {
   burgers.create([
-    "burgerName", "isEaten"
+    "burger_name", "devoured"
   ], [
-    req.body.burgerName, 0
+    req.body.burger_name, 0
   ], function() {
     res.redirect("/");
   });
@@ -30,7 +30,7 @@ router.put("/:id", function(req, res) {
   console.log("condition", condition);
 
   burgers.update({
-    isEaten: req.body.isEaten
+    devoured: req.body.devoured
   }, condition, function() {
     res.redirect("/");
   });

@@ -4,16 +4,17 @@ var mysql = require("mysql");
 var connection;
 
 // setup for heroku
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
+// if (process.env.JAWSDB_URL) {
+//   connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
   connection = mysql.createConnection({
-    port: process.env.port,
     host: process.env.host,
+    port: process.env.port,
+    password: process.env.password,
     user: process.env.user,
     database: process.env.database
   });
-}
+
 
 // Make connection.
 connection.connect(function(err) {

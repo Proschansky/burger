@@ -1,3 +1,3 @@
-INSERT INTO burgers (burgerName) VALUES ('Fish Lips Burger');
-INSERT INTO burgers (burgerName) VALUES ('Chili Dance Pants Burger');
-INSERT INTO burgers (burgerName, isEaten) VALUES ('Guacamole Burger', true);
+INSERT INTO burgers (burgerName) VALUES ('Bacon Cheeseburger');
+INSERT INTO burgers (burgerName) VALUES ('Maui Waui Burger');
+INSERT INTO burgers (burgerName) VALUES ('Black and Blue Burger');

@@ -1,20 +1,21 @@
 <div class="row">
     <div class="col s6">
-      <div class="card">
+      <div class="card-header">
         <div class="card-image">
-          <img src="assets/images/menu.png">
+          <img src="">
         </div>
-        <div class="card-content">
-          <h6>Some burgerst to choose:</h6>
+        <div class="card-body">
+          <h6>Some burgers to choose:</h6>
           <hr>
           <ul>
             {{#each burgers}}
-              {{#unless this.isEaten}}
+              {{#unless this.devoured}}
                 <li> 
                   <span>
-                    {{this.burgerName}}
+                    {{this.burger_name}}
                       <div>
                         {{> burgers/menuBurgers}}
+                        {{> burgers/deleteBurger}}
                       </div>
                   </span> 
                 </li>
@@ -26,19 +27,19 @@
     </div>
 
   <div class="col s6">
-    <div class="card">
+    <div class="card-header">
       <div class="card-image">
-        <img src="assets/images/eaten.png">
+        <img src="">
       </div>
-      <div class="card-content">
-        <h6>Some burgerst you've eaten:</h6>
+      <div class="card-body">
+        <h6>Devoured Burgers:</h6>
         <hr>
         <ul>
           {{#each burgers}}
-            {{#if this.isEaten}}
+            {{#if this.devoured}}
               <li> 
                 <span>
-                  {{this.burgerName}}
+                  {{this.burger_name}}
                     <div>
                       {{> burgers/deleteBurger}}
                     </div>
@@ -54,13 +55,13 @@
 
 
 <div class="row">
-    <div class="col s6 offset-s3">
-      <h6>Add your favorites to the menu!</h6>
+    <div class="col-m-6 bg-secondary text-center">
+      <h6><span class="align-middle text-light">Add a Burger</span></h6>
       <form class="create-update-form" action="/" method="POST">
         <div class="form-group">
-          <label for="burger">Burger description:</label>
-          <input type="text" id="burger" name="burgerName" class="validate" >
-          <button type="submit" class="waves-effect waves-light btn btn-small black right"><i class="material-icons prefix">create</i>Add Burger</button>
+          <label for="burger"><span class="text-white">Burger description:</span></label>
+          <input type="text" id="burger" name="burger_name" class="validate text-white" >
+          <button type="submit" class=" btn btn-success">Add Burger!</button>
         </div>
       </form>
 </div>
