@@ -1,16 +1,15 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   $("#notComplete").on("click", function() {
-    var id = $(this).data("id");
-    var devoured = $(this).data("devoured");
-    console.log(id, devoured)
+    var id = $(this).attr("data-burger");
+    console.log(id);
 
     var eaten = {
       devoured: true
     };
 
     // Send the PUT request.
-    $.ajax("/:id", {
+    $.ajax("/api/:id", id, {
       type: "PUT",
       data: eaten
     }).then(
