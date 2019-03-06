@@ -5,18 +5,18 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" ",
-    "start": "node server.js"
+    "start": "node server.js, nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/A-Dicer/TODO.git"
+    "url": "https://github.com/Proschansky/burger"
   },
-  "author": "",
+  "author": "Sam Proschansky",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/A-Dicer/TODO/issues"
+    "url": "https://github.com/Proschansky/burger"
   },
-  "homepage": "https://github.com/A-Dicer/TODO#readme",
+  "homepage": "https://github.com/Proschansky/burger#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "dotenv": "^6.2.0",
