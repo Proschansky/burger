@@ -8,7 +8,7 @@ var app = express();
 
 app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // allows for PUT or DELETE
 app.use(methodOverride("_method"));

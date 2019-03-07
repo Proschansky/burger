@@ -9,7 +9,7 @@ router.get("/", function(req, res) {
     var burgerInfo = {
       burgers: data
     };
-    console.log(burgerInfo);
+    // console.log(burgerInfo);
     res.render("index", burgerInfo);
   });
 });
@@ -24,7 +24,8 @@ router.post("/", function(req, res) {
   });
 });
 
-router.put("/api/:id", function(req, res) {
+router.put("/:id", function(req, res) {
+  console.log(req.params.id)
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);

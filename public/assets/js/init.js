@@ -1,15 +1,20 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
+ function DataConstructor (burgerId, burger_name, devoured,){
+  this.id = burgerId;
+  this.burger_name = burger_name;
+  this.devoured = devoured;
+};
+
 $(function() {
   $("#notComplete").on("click", function() {
     var id = $(this).attr("data-burger");
-    console.log(id);
 
     var eaten = {
       devoured: true
     };
 
     // Send the PUT request.
-    $.ajax("/api/:id", id, {
+    $.ajax("/" + id, {
       type: "PUT",
       data: eaten
     }).then(
