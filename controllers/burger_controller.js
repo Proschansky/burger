@@ -14,11 +14,11 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/", function(req, res) {
+router.post("/api/burger", function(req, res) {
   burgers.create([
     "burger_name", "devoured"
   ], [
-    req.body.burger_name, 0
+    req.params.burger_name, 0
   ], function() {
     res.redirect("/");
   });
@@ -38,8 +38,8 @@ router.put("/:id", function(req, res) {
 });
 
 router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
+  var condition = "id = " + req.body.data;
+  console.log(condition);
   burgers.delete(condition, function() {
     res.redirect("/");
   });
