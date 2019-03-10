@@ -1,13 +1,13 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 
 $(function() {
-  setTimeout(function(){
-    window.location.reload();
-  },5000);
+  // setTimeout(function(){
+  //   window.location.reload();
+  // },5000);
 
-  $("#devour").on("click", function() {
+  $(".devour").on("click", function() {
     var id = $(this).attr("data-burger");
-
+    console.log(id);
     var eaten = {
       devoured: true
     };
@@ -19,31 +19,31 @@ $(function() {
     }).then(
       function(result) {
         console.log("This burger has been devoured");
-
+        location.reload();
       }
     );
   });
 
-  $("#cook").on("click", function() {
+  $(".cook").on("click", function() {
     var id = $(this).attr("data-burger");
-
+    console.log(id);
     var eaten = {
       devoured: false
     };
 
     // Send the PUT request.
-    $.ajax("/" + id, {
+    $.ajax("/cook/" + id, {
       type: "PUT",
       data: eaten
     }).then(
       function(result) {
         console.log("This burger has been cooked again!");
-
+        location.reload();
       }
     );
   });
 
-  $(".create-form").on("submit", function(event) {
+  $(".create-update-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -58,21 +58,21 @@ $(function() {
     }).then(
       function() {
         console.log("created new burger" + name);
-        // Reload the page to get the updated list
+        location.reload();
       }
     );
   });
 
-  $("#delete").on("click", function() {
+  $(".delete").on("click", function() {
     var id = $(this).attr("data-burger");
 
     // Send the DELETE request.
-    $.ajax("/" + id, {
+    $.ajax("/delete/" + id, {
       type: "DELETE",
     }).then(
       function() {
         console.log("deleted burger", id);
-        // Reload the page to get the updated list
+        location.reload();
       }
     );
   });

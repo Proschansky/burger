@@ -15,33 +15,47 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burger", function(req, res) {
+ console.log(req.body);
   burgers.create([
     "burger_name", "devoured"
   ], [
-    req.params.burger_name, 0
+    req.body.burger_name, 0
   ], function() {
     res.redirect("/");
   });
 });
 
 router.put("/:id", function(req, res) {
-  console.log(req.params.id)
+ 
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
   burgers.update({
-    devoured: req.body.devoured
+    devoured: true
   }, condition, function() {
-    res.redirect("/");
+    res.sendStatus(200);
   });
 });
 
-router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.body.data;
+router.put("/cook/:id", function(req, res) {
+ 
+  var condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
+
+  burgers.update({
+    devoured: false
+  }, condition, function() {
+    res.sendStatus(200);
+  });
+});
+
+router.delete("/delete/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
   console.log(condition);
   burgers.delete(condition, function() {
-    res.redirect("/");
+    res.sendStatus(200)
   });
 });
 
