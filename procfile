@@ -1,2 +1,2 @@
 web: node server.js
-NODE_ENV=production
+NODE_ENV: git production
